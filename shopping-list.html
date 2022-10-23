@@ -9,10 +9,9 @@
     h2{
     text-align: right;
     }
-    label.item{
-      text-align: center;
+    *{
+      background-color: #f3a68c;
     }
-
       li {
         margin-bottom: 10px;
       }
@@ -22,12 +21,15 @@
         margin-left: 20px;
         color: #666;
       }
+
+
+
     </style>
   </head>
   <body>
 
     <h1>My todo list</h1>
-    <h2>maked by Momoka KAWAGUCHI</h2>
+    <h2>made by Momoka KAWAGUCHI</h2>
 
     <div>
       <label for="item">Enter a new item:</label>
@@ -52,7 +54,10 @@
       const li = document.createElement('li');
       const span = document.createElement('span');
       const butt = document.createElement('button');
+      const box = document.createElement('input');
+      box.type="checkbox";
 
+      li.appendChild(box);
       li.appendChild(span);
       li.appendChild(butt);
 
@@ -70,6 +75,11 @@
       }
 
       button.onclick=MakingList;
+      window.document.onkeydown = function(){
+        if (event.key === 'Enter') {
+            MakingList();
+        }
+    }
 
     </script>
   </body>
