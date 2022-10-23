@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo list example</title>
+    <style>
+
+    h2{
+    text-align: right;
+    }
+    label.item{
+      text-align: center;
+    }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My todo list</h1>
+    <h2>maked by Momoka KAWAGUCHI</h2>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <script>
+      const list=document.querySelector("ul");
+      const input = document.querySelector('input');
+      const button = document.querySelector('button');
+
+      function MakingList(){
+
+      const NowValue=input.value;
+      input.value="";
+
+      const li = document.createElement('li');
+      const span = document.createElement('span');
+      const butt = document.createElement('button');
+
+      li.appendChild(span);
+      li.appendChild(butt);
+
+      span.textContent=NowValue;
+      butt.textContent="Delete";
+
+      list.appendChild(li);
+
+      butt.addEventListener('click', () => {
+      list.removeChild(li);
+       });
+
+       input.focus();
+
+      }
+
+      button.onclick=MakingList;
+
+    </script>
+  </body>
+</html>
